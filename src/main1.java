@@ -1,14 +1,9 @@
 import java.util.Scanner;
-public class main1 {
-	public main1() {
-		// TODO Auto-generated constructor stub
-	}
 
+import auth.auth;
+import role.role;
+public class main1 {
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-        //String s1, s2;
-        //s1 = sc.nextLine();
-        //s2 = sc.nextLine();
 		Scanner sc = new Scanner(System.in);
         int n = 0;
         String login, password, role;
@@ -38,13 +33,6 @@ public class main1 {
         	user[i].printUser();
         	System.out.println(i + " user role " + roles[i].returnvalue());
         	}
-		//auth ouraccount1 = new auth();
-		//ouraccount1.setUser(1, "Andrew", "343421");;
-		//ouraccount1.printUser();
-		//ouraccount1.setUser(2, "Mihail", "642422");
-		//ouraccount1.printUser();
-		//ouraccount1.getUser(ouraccount1);
-		//ouraccount1.printUser();
 		}
 	}
 

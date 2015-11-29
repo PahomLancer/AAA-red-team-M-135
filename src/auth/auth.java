@@ -1,3 +1,7 @@
+package auth;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException; 
+
 public class auth{
 	int id = 0;
 	public String login;
@@ -5,7 +9,8 @@ public class auth{
 	String salt = "qa12ws34ed56rf78tg90";
 	public void setUser(int id, String login, String password){
 		this.login = login;
-		this.password = password;
+		//this.password = password;
+		this.password = hash.makeHash(password, salt);
 		this.id = id;
 	}
 	public int checkUser(auth user){
