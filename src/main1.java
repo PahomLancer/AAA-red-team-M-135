@@ -6,13 +6,13 @@ import account.account;
 import work.work;
 import role.roles;
 
-//import org.apache.commons.cli.*;
+import commonscli131.*;
 import java.sql.Date;
 import java.text.ParseException;
 import java.util.Scanner;
 
 public class main1 {
-	 public static void main1(String[] args) throws ParseException {
+	 public static void main(String[] args) throws ParseException {
 	        String login = "";
 	        String password = "";
 	        String res = "";
