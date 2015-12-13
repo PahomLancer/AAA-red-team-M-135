@@ -23,4 +23,5 @@ public class account {
 		String phrase = acc + " " + log;
 		return phrase;
 	}
+	
 }

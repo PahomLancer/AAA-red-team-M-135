@@ -27,7 +27,7 @@ public class main1 {
         	user[i].setUser(i, login, password);
         	System.out.println("Insert " + i + " user role (r, w, e, rw, re, we, rwe): ");
         	role = sc.nextLine();
-        	roles[i].setRole(i, role);
+        	roles[i].setRole(i, user[i], role, role);
         	}
         for (int i = 0; i < n; i++) {
         	user[i].printUser();
