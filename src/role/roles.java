@@ -1,9 +1,5 @@
 package role;
-
-public class roles {
-
-	public roles() {
-		// TODO Auto-generated constructor stub
-	}
-
+//Енум прав
+public enum roles {
+    READ, WRITE, EXEC;
 }
