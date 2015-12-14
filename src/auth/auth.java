@@ -8,11 +8,11 @@ public class auth{
 	private String password;
 	private String salt = "qa12ws34ed56rf78tg90";
 	//Задаем пользователя
-	public void setUser(int id, String login, String password){
+	public void setUser(String login, String password){
 		this.login = login;
 		//this.password = password;
 		this.password = hash.makeHash(password, salt);
-		this.id = id;
+		this.id = 0;
 	}
 	//Проверка пользователя
 	public int checkUser(auth user){

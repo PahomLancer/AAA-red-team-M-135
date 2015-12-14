@@ -6,7 +6,8 @@ import account.account;
 import work.work;
 import role.roles;
 
-import commonscli131.*;
+//import commonscli131.*;
+import org.apache.commons.cli.*;
 import java.sql.Date;
 import java.text.ParseException;
 import java.util.Scanner;
@@ -29,11 +30,11 @@ public class main1 {
 	        auth user[] = new auth[5];
 	        for (int i = 0; i < 5; i++)
 	            user[i] = new auth();
-	        user[0].setUser(1, "Andrew Didenko", "qa12ws34");
-	        user[1].setUser(2, "Gleb Gluhov", "0192837465");
-	        user[2].setUser(3, "Oleg Shlehtemayer", "zpxocivubyntmrr");
-	        user[3].setUser(4, "Vasiliy Kupchinskiy", "uynbjgld");
-	        user[4].setUser(5, "Mihail Shamin", "pocxopxc");
+	        user[0].setUser("Andrew Didenko", "qa12ws34");
+	        user[1].setUser("Gleb Gluhov", "0192837465");
+	        user[2].setUser("Oleg Shlehtemayer", "zpxocivubyntmrr");
+	        user[3].setUser("Vasiliy Kupchinskiy", "uynbjgld");
+	        user[4].setUser("Mihail Shamin", "pocxopxc");
 	        //Задаю права пользователям
 	        role role[] = new role[8];
 	        for (int i = 0; i < role.length; i++)
@@ -63,7 +64,7 @@ public class main1 {
 	            CommandLine cmd = parser.parse(options, args);
 
 	            if (cmd.hasOption("h")) {
-	                Work.printHelp();
+	                work.printHelp();
 	            }
 	            if (cmd.hasOption("login")) {
 	                login = cmd.getOptionValue("login");
@@ -71,7 +72,7 @@ public class main1 {
 
 	            }
 	            if (cmd.hasOption("pass")) {
-	                pass = cmd.getOptionValue("pass");
+	                password = cmd.getOptionValue("pass");
 	                arg++;
 	            }
 	            if (cmd.hasOption("res")) {
@@ -90,46 +91,46 @@ public class main1 {
 
 	            }
 	            if (cmd.hasOption("ds")) {
-	                ds = cmd.getOptionValue("ds");
-	                Work.checkDate(ds);
+	                datestart = cmd.getOptionValue("ds");
+	                work.checkDate(datestart);
 	                arg++;
 
 	            }
 	            if (cmd.hasOption("de")) {
-	                de = cmd.getOptionValue("de");
-	                Work.checkDate(de);
+	                dateend = cmd.getOptionValue("de");
+	                work.checkDate(dateend);
 	                arg++;
 
 	            }
 	            if (cmd.hasOption("vol")) {
-	                vol = cmd.getOptionValue("vol");
+	                value = cmd.getOptionValue("vol");
 	                arg++;
 	            }
 	        } catch (org.apache.commons.cli.ParseException e) {
-	            Work.printHelp();
+	            work.printHelp();
 
 	        }
 
-	        user1.setUser(login, pass);
-	        role1.setRights(user1, Roles.valueOf(rol), res);
+	        user1.setUser(login, password);
+	        role1.setRole(user1, roles.valueOf(rol), res);
 	        if (arg == 2) {
-	            Work.checkUser(user, user1);
+	            work.checkUser(user, user1);
 
 	            System.exit(0);
 	        } else if (arg == 4) {
-	            Work.checkUser(user, user1);
-	            Work.checkRights(role, user1, role1);
+	            work.checkUser(user, user1);
+	            work.checkRights(role, user1, role1);
 
 	            System.exit(0);
 	        } else if (arg == 7) {
-	            Work.checkUser(user, user1);
-	            Work.checkRights(role, user1, role1);
-	            Work.checkVolume(vol);
-	            acc1.setAcc(user1, role1, Date.valueOf(ds), Date.valueOf(de), Integer.valueOf(vol));
+	            work.checkUser(user, user1);
+	            work.checkRights(role, user1, role1);
+	            work.checkValue(value);
+	            acc1.setAccount(user1, role1, Date.valueOf(datestart), Date.valueOf(dateend), Integer.valueOf(value));
 
 	            System.exit(0);
 	        } else {
-	            Work.printHelp();
+	            work.printHelp();
 	        }
 
 	    }
