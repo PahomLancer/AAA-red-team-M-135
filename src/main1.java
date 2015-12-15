@@ -7,6 +7,7 @@ import work.work;
 import role.roles;
 
 //import commonscli131.*;
+//import lib.commons-cli-1.3.1;
 import org.apache.commons.cli.*;
 import java.sql.Date;
 import java.text.ParseException;
@@ -27,16 +28,22 @@ public class main1 {
 	        role role1 = new role();
 	        account acc1 = new account();
 	        //Задаю пользователей
-	        auth user[] = new auth[5];
-	        for (int i = 0; i < 5; i++)
+	        //Тесты
+	        auth user[] = new auth[2];
+	        for (int i = 0; i < 2; i++)
 	            user[i] = new auth();
-	        user[0].setUser("Andrew Didenko", "qa12ws34");
-	        user[1].setUser("Gleb Gluhov", "0192837465");
-	        user[2].setUser("Oleg Shlehtemayer", "zpxocivubyntmrr");
-	        user[3].setUser("Vasiliy Kupchinskiy", "uynbjgld");
-	        user[4].setUser("Mihail Shamin", "pocxopxc");
+	        user[0].setUser("jdoe", "sup3rpaZZ");
+	        user[1].setUser("jrow", "Qweqrty12");
+	        //auth user[] = new auth[5];
+	        //for (int i = 0; i < 5; i++)
+	        //    user[i] = new auth();
+	        //user[0].setUser("Andrew Didenko", "qa12ws34");
+	        //user[1].setUser("Gleb Gluhov", "0192837465");
+	        //user[2].setUser("Oleg Shlehtemayer", "zpxocivubyntmrr");
+	        //user[3].setUser("Vasiliy Kupchinskiy", "uynbjgld");
+	        //user[4].setUser("Mihail Shamin", "pocxopxc");
 	        //Задаю права пользователям
-	        role role[] = new role[8];
+	        /*role role[] = new role[8];
 	        for (int i = 0; i < role.length; i++)
 	            role[i] = new role();
 	        role[0].setRole(user[0], roles.EXEC, "a.b.c");
@@ -47,6 +54,15 @@ public class main1 {
 	        role[5].setRole(user[3], roles.READ, "c");
 	        role[6].setRole(user[4], roles.READ, "a");
 	        role[7].setRole(user[4], roles.WRITE, "a");
+	        */
+	        //Тесты
+	        role role[] = new role[4];
+	        for (int i = 0; i < role.length; i++)
+	            role[i] = new role();
+	        role[0].setRole(user[0], roles.READ, "a");
+	        role[1].setRole(user[0], roles.WRITE, "a.b");
+	        role[2].setRole(user[1], roles.EXEC, "a.b.c");
+	        role[3].setRole(user[0], roles.EXEC, "a.bc");
 	        String auto = "";
 	        //Задаю опции
 	        Options options = new Options()
