@@ -1,5 +1,31 @@
 package main;
-import main.auth;
+//import main.auth;
+//Енум прав
+public enum role {
+    read("read"), write("write"), execute("execute");
+    final String value;
+    //Задаем права
+    role(String value) {
+        this.value = value;
+    }
+    //Конвертируем из строки
+    public static role fromString(String x) {
+        switch (x) {
+            case "read":
+                return read;
+            case "write":
+                return write;
+            case "execute":
+                return execute;
+        }
+        return null;
+    }
+    //Возвращаем значение
+    public String returnValue() {
+        return value;
+    }
+}
+/*R1-R2 version
 public class role {
 	//1 read 2 write 4 execute 3 read-write 5 read-execute 6 write-execute 7 read-write-execute
     //private int value;
@@ -42,6 +68,7 @@ public class role {
 	        }
 	    }
 }
+*/
 // Старая версия role
 	/* public void setRole(int id, auth user, String role, String source){
 		this.id = id;
