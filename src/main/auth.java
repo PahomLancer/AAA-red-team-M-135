@@ -1,6 +1,4 @@
-package auth;
-//import java.security.MessageDigest;
-//import java.security.NoSuchAlgorithmException; 
+package main;
 
 public class auth{
 	int id = 0;

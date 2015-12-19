@@ -1,10 +1,8 @@
+package main;
+
 import java.util.Scanner;
 
-import auth.auth;
-import role.role;
-import account.account;
-import work.work;
-import role.roles;
+import main.auth;
 
 //import commonscli131.*;
 //import lib.commons-cli-1.3.1;

@@ -1,7 +1,7 @@
-package account;
-import auth.auth;
-import role.role;
+package main;
 import java.util.Date;
+
+import main.auth;
 
 public class account {
 	//Старая версия

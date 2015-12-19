@@ -1,5 +1,5 @@
-package role;
-import auth.auth;
+package main;
+import main.auth;
 public class role {
 	//1 read 2 write 4 execute 3 read-write 5 read-execute 6 write-execute 7 read-write-execute
     //private int value;

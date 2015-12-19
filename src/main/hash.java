@@ -1,4 +1,5 @@
-package auth;
+package main;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException; 
 public class hash {
