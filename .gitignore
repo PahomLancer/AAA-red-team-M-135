@@ -1,7 +1,7 @@
-/*.bat
-/*.jpg
-/*.classpath
-/.settings
-/*.project
+*.bat
+*.jpg
+.classpath
+.settings
+.project
 
 
