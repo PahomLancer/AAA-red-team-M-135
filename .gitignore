@@ -1,7 +1,6 @@
+.settings/
+.classpath
 *.bat
 *.jpg
-.classpath
-.settings
 .project
-
 
