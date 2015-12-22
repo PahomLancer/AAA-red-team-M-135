@@ -1,0 +1,5 @@
+*.bat
+*.jpg
+.classpath
+.settings/
+.project
