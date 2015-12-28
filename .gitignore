@@ -1,11 +1,9 @@
-.idea/
-target/
-aaa.*.db
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+workAP/*
+# Package Files #
+*.jar
+*.war
+*.ear
 *.iml
-*.bat
-*.jpg
-.classpath
-.settings/
-.project
-dependency-reduced-pom.xml
-aaa.log
+*.txt
