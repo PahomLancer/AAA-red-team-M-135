@@ -1,1 +1,10 @@
-*
+.settings/
+bin/
+.classpath
+*.bat
+*.jpeg
+*.sh
+worklog.*.db
+*.iml
+dependency-reduced-pom.xml
+worklog.log
