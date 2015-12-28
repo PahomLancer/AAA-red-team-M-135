@@ -1,10 +1,1 @@
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-workAP/*
-# Package Files #
-*.jar
-*.war
-*.ear
-*.iml
-*.txt
-*.jpg
+*
