@@ -2,7 +2,7 @@
 bin/
 .classpath
 *.bat
-*.jpeg
+*.jpg
 *.sh
 worklog.*.db
 *.iml
