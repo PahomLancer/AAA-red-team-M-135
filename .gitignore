@@ -1,5 +1,11 @@
+.idea/
+target/
+aaa.*.db
+*.iml
 *.bat
 *.jpg
 .classpath
 .settings/
 .project
+dependency-reduced-pom.xml
+aaa.log
