@@ -4,7 +4,7 @@ bin/
 *.bat
 *.jpg
 *.sh
-aaa.*.db
+m135-red.*.db
 *.iml
 dependency-reduced-pom.xml
-aaa.log
+m135-red.log

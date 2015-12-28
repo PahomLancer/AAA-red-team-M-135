@@ -34,12 +34,12 @@ public class auth {
         //Создаем Flyway instance
         Flyway flyway = new Flyway();
         // Указываем на бд
-        flyway.setDataSource("jdbc:h2:./aaa", "sa", "");
+        flyway.setDataSource("jdbc:h2:./m135-red", "sa", "");
         // Начало миграции
         flyway.migrate();
     }
     public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:h2:./aaa", "sa", "");
+        return DriverManager.getConnection("jdbc:h2:./m135-red", "sa", "");
     }
     public static String md5(String input) {
         String md5 = null;
