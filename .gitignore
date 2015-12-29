@@ -3,7 +3,6 @@ bin/
 .classpath
 *.bat
 *.jpg
-*.sh
 m135-red.*.db
 *.iml
 dependency-reduced-pom.xml
