@@ -1,7 +1,6 @@
 .settings/
 bin/
 .classpath
-*.bat
 *.jpg
 m135-red.*.db
 *.iml
