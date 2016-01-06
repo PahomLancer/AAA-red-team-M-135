@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.m135red-team</groupId>
-    <artifactId>aaa</artifactId>
+    <artifactId>m135-red</artifactId>
     <version>1.1 realise-SNAPSHOT</version>
 	
 	 <build>
