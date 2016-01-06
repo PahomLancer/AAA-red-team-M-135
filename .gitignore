@@ -3,7 +3,12 @@ bin/
 .classpath
 *.bat
 *.jpg
-m135-red.*.db
+*.sh
+worklog.*.db
 *.iml
 dependency-reduced-pom.xml
-m135-red.log
+worklog.log
+.idea/
+target/
+aaa.*.db
+aaa.log

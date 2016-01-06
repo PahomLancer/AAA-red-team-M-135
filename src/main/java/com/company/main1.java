@@ -64,13 +64,13 @@ public class main1 {
         }
         if (commandLine.hasOption("role") && commandLine.hasOption("res")) {
             //Авторизация
-            role role = role.fromString(commandLine.getOptionValue("role"));
-            if (role == null) {
+            role role1 = role.fromString(commandLine.getOptionValue("role"));
+            if (role1 == null) {
                 logger.warn("Incorrect role");
                 return 3;
             }
             //Проверка доступа к ресурсу
-            auth.res(commandLine.getOptionValue("res"), role);
+            auth.res(commandLine.getOptionValue("res"), role1);
             if (!auth.isResAccess()) {
                 logger.warn("Access denied");
                 return 4;
