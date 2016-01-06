@@ -1,4 +1,5 @@
-package main;
+package main.java.com.company.domains;
+
 
 public class user {
     private int id;

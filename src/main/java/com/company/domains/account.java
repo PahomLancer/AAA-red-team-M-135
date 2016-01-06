@@ -1,4 +1,5 @@
-package main;
+package main.java.com.company.domains;
+
 import java.util.Date;
 
 //import main.auth;

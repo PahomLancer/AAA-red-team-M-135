@@ -1,9 +1,14 @@
-package main;
+package main.java.com.company;
+
 
 //import main.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.flywaydb.core.Flyway;
+
+import main.java.com.company.domains.resource;
+import main.java.com.company.domains.role;
+import main.java.com.company.domains.user;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

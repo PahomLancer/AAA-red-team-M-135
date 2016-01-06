@@ -1,8 +1,9 @@
-package test;
+package test.java.com.company;
+
 
 import org.junit.Test;
 
-import main.main1;
+import main.java.com.company.main1;
 
 import java.sql.SQLException;
 
