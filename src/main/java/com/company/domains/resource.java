@@ -1,4 +1,4 @@
-package main.java.com.company.domains;
+package com.company.domains;
 
 public class Resource {
     private int id;
