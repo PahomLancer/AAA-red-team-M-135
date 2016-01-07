@@ -6,7 +6,7 @@ public class user {
     private String password;
     private String login;
     private String salt;
-    //Задаем пользователя
+    //Set user
     public user(int id, String name, String password, String login, String salt) {
         this.id = id;
         this.name = name;
@@ -14,7 +14,7 @@ public class user {
         this.login = login;
         this.salt = salt;
     }
-    //Функции возвращающие инкапсулированные переменные
+    //Return incapsul perem
     public int returnId() {
         return id;
     }

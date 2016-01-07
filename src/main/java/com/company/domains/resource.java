@@ -5,13 +5,13 @@ public class resource {
     private int id;
     private String name;
     private resource id_parent;
-    //Задаем ресурсы
+    //Set recoursess
     public resource(int id, String name, resource id_parent) {
         this.id = id;
         this.name = name;
         this.id_parent = id_parent;
     }
-    //Возвращаем переменные
+    //Get perem
     public int returnId() {
         return id;
     }

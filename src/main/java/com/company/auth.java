@@ -35,11 +35,11 @@ public class auth {
         connection = getConnection();
         df.setLenient(false);
         auth.logger.debug("Migration");
-        //Создаем Flyway instance
+        //Creating Flyway instance
         Flyway flyway = new Flyway();
-        // Указываем на бд
+        //Seting database
         flyway.setDataSource("jdbc:h2:./aaa", "sa", "");
-        // Начало миграции
+        //Start migration
         flyway.migrate();
     }
     public Connection getConnection() throws SQLException {
@@ -51,7 +51,7 @@ public class auth {
         try {
             MessageDigest digest = MessageDigest.getInstance("MD5");
             digest.update(input.getBytes(), 0, input.length());
-            //Преобразуем число
+            //Reorg number
             md5 = new BigInteger(1, digest.digest()).toString(16);
         } catch (NoSuchAlgorithmException e) {
 
@@ -59,19 +59,19 @@ public class auth {
         }
         return md5;
     }
-    //Аутентификация
+    //Authethication
     public void authentication(String login, String pass) throws SQLException {
         auth.logger.debug("Checking authentication");
         try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM Auth WHERE login=?")) {
             statement.setString(1, login);
 
             try (ResultSet result = statement.executeQuery()) {
-                // Проверяем логин
+                //Checking login
                 correctLogin = result.first();
                 if (!correctLogin) {
                     return;
                 }
-                // Провереяем пароль
+                //Checking password
                 correctPass = md5(md5(pass) + result.getString("salt")).equals(result.getString("password"));
                 if (!correctPass) {
                     return;
@@ -88,14 +88,14 @@ public class auth {
             try (ResultSet result = statement.executeQuery()) {
                 resAccess = result.first();
                 if (!resAccess) {
-                    // Доступ запрещен
+                    //Dinede access
                     return;
                 }
 
                 int resource_id = result.getInt("id");
                 this.resource = new resource(resource_id, resource, null);
 
-                // Проверяем доступ
+                //Checking access
                 checkAccess(resource_id, role);
             }
         }
@@ -128,7 +128,7 @@ public class auth {
             }
         }
     }
-    // Проверяем корректность даты
+    //Checking date
     public void checkDate(String firstDate, String lastDate) {
         try {
             dateIn = df.parse(firstDate);
@@ -151,7 +151,7 @@ public class auth {
             insertToAcc.executeUpdate();
         }
     }
-    // Проверяем корректность объема
+    //Checking value
     public void checkVolume(String str) {
         try {
             volume = Integer.parseInt(str);
@@ -176,42 +176,3 @@ public class auth {
         return correctPass;
     }
 }
-//R1-R2 version
-/*
-public class auth{
-	int id = 0;
-	public String login;
-	private String password;
-	private String salt = "qa12ws34ed56rf78tg90";
-	//Задаем пользователя
-	public void setUser(String login, String password){
-		this.login = login;
-		//this.password = password;
-		this.password = hash.makeHash(password, salt);
-		this.id = 0;
-	}
-	//Проверка пользователя
-	public int checkUser(auth user){
-		if (user.login.equals(this.login))
-		{
-			if (user.password.equals(this.password))
-			{
-				return 1;
-			}
-			return 2;
-		}
-		return 3;
-	}
-	//Выбираем пользователя
-	public auth getUser(auth user) {
-        user.id = this.id;
-        user.password = this.password;
-        return user;
-    }
-	//Выводим пользователя
-	public void printUser()
-	{
-		System.out.println(this.id + " " + this.login + " " + this.password);
-	}
-}
-*/
