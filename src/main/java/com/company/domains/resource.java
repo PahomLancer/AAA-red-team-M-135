@@ -1,12 +1,11 @@
 package main.java.com.company.domains;
 
-
-public class resource {
+public class Resource {
     private int id;
     private String name;
-    private resource id_parent;
+    private Resource id_parent;
     //Set recoursess
-    public resource(int id, String name, resource id_parent) {
+    public Resource(int id, String name, Resource id_parent) {
         this.id = id;
         this.name = name;
         this.id_parent = id_parent;
@@ -18,7 +17,7 @@ public class resource {
     public String returnName() {
         return name;
     }
-    public resource returnId_parent() {
+    public Resource returnId_parent() {
         return id_parent;
     }
 }

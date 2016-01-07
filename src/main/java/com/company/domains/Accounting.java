@@ -7,16 +7,16 @@ import java.util.Date;
 import java.util.Calendar;
 //import java.util.Date;
 
-public class account {
+public class Accounting {
     private int id;
-    private role role;
-    private user user;
+    private Role role;
+    private User user;
     private Date loginDate;
     private Date logoutDate;
     private int value;
-    private resource resources;
+    private Resource resources;
     //Set account
-    public account(int id, role role, user user, resource resources) {
+    public Accounting(int id, Role role, User user, Resource resources) {
         this.id = id;
         this.role = role;
         this.user = user;
@@ -37,10 +37,10 @@ public class account {
     public int returnId() {
         return id;
     }
-    public role returnRole() {
+    public Role returnRole() {
         return role;
     }
-    public user returnUser() {
+    public User returnUser() {
         return user;
     }
     public Date returnLoginDate() {
@@ -52,7 +52,7 @@ public class account {
     public int returnValue() {
         return value;
     }
-    public resource returnResources() {
+    public Resource returnResources() {
         return resources;
     }
 }

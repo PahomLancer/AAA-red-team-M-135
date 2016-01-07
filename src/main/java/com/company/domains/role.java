@@ -1,14 +1,14 @@
 package main.java.com.company.domains;
 //Enum rights
-public enum role {
+public enum Role {
     read("read"), write("write"), execute("execute");
     final String value;
     //Set rights
-    role(String value) {
+    Role(String value) {
         this.value = value;
     }
     //Converting from string
-    public static role fromString(String x) {
+    public static Role fromString(String x) {
         switch (x) {
             case "read":
                 return read;

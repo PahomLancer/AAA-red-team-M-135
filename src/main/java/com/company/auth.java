@@ -5,9 +5,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.flywaydb.core.Flyway;
 
-import main.java.com.company.domains.resource;
-import main.java.com.company.domains.role;
-import main.java.com.company.domains.user;
+import main.java.com.company.domains.Resource;
+import main.java.com.company.domains.Role;
+import main.java.com.company.domains.User;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -16,10 +16,10 @@ import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-public class auth {
-    private static final Logger logger = LogManager.getLogger(auth.class);
+public class Auth {
+    private static final Logger logger = LogManager.getLogger(Auth.class);
     Connection connection;
-    resource resource;
+    Resource resource;
     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     private boolean resAccess = false;
     private boolean correctVolume = false;
@@ -29,12 +29,12 @@ public class auth {
     public java.util.Date dateIn;
     public java.util.Date dateOut;
     int volume;
-    user user;
-    public auth() throws SQLException {
-        auth.logger.debug("Establishing connection with database");
+    User user;
+    public Auth() throws SQLException {
+        Auth.logger.debug("Establishing connection with database");
         connection = getConnection();
         df.setLenient(false);
-        auth.logger.debug("Migration");
+        Auth.logger.debug("Migration");
         //Creating Flyway instance
         Flyway flyway = new Flyway();
         //Seting database
@@ -61,7 +61,7 @@ public class auth {
     }
     //Authethication
     public void authentication(String login, String pass) throws SQLException {
-        auth.logger.debug("Checking authentication");
+        Auth.logger.debug("Checking authentication");
         try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM Auth WHERE login=?")) {
             statement.setString(1, login);
 
@@ -76,13 +76,13 @@ public class auth {
                 if (!correctPass) {
                     return;
                 }
-                user = new user(result.getInt("id"),result.getString("name"),result.getString("password"),result.getString("login"),result.getString("salt"));
+                user = new User(result.getInt("id"),result.getString("name"),result.getString("password"),result.getString("login"),result.getString("salt"));
             }
         }
     }
 
-    public void res(String resource, role role) throws SQLException {
-        auth.logger.debug("Checking access");
+    public void res(String resource, Role role) throws SQLException {
+        Auth.logger.debug("Checking access");
         try (PreparedStatement statement = connection.prepareStatement("SELECT id FROM resource WHERE name = ?")) {
             statement.setString(1, resource);
             try (ResultSet result = statement.executeQuery()) {
@@ -93,7 +93,7 @@ public class auth {
                 }
 
                 int resource_id = result.getInt("id");
-                this.resource = new resource(resource_id, resource, null);
+                this.resource = new Resource(resource_id, resource, null);
 
                 //Checking access
                 checkAccess(resource_id, role);
@@ -101,7 +101,7 @@ public class auth {
         }
     }
 
-    public void checkAccess(int resource_id, role role) throws SQLException {
+    public void checkAccess(int resource_id, Role role) throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) AS count FROM res_user WHERE res_id = ? AND auth_id = ? AND Role = ?")) {
             statement.setInt(1, resource_id);
             statement.setInt(2, user.returnId());
@@ -139,7 +139,7 @@ public class auth {
         }
     }
     public void insertToAccau(String role) throws SQLException {
-        auth.logger.debug("Writing to Accounting");
+        Auth.logger.debug("Writing to Accounting");
         try (PreparedStatement insertToAcc = connection.prepareStatement("INSERT INTO accau(Role, Auth_id, Date_in, Date_out, volume, res_id) " +
                 "VALUES (?,?,?,?,?,?)")) {
             insertToAcc.setString(1, role);

@@ -5,14 +5,14 @@ import org.apache.commons.cli.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import main.java.com.company.domains.role;
+import main.java.com.company.domains.Role;
 
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
 
-public class main1 {
-    private static final Logger logger = LogManager.getLogger(main1.class);
+public class Main {
+    private static final Logger logger = LogManager.getLogger(Main.class);
     private static Option makeOptionWithArgument(String shortName, String description, boolean isRequired) {
         Option result = new Option(shortName, true, description);
         result.setArgs(1);
@@ -51,7 +51,7 @@ public class main1 {
             return 255;
         }
         logger.warn("***********START***********");
-        auth auth = new auth();
+        Auth auth = new Auth();
         //Authentication
         auth.authentication(commandLine.getOptionValue("login"), commandLine.getOptionValue("pass"));
         if (!auth.isCorrectLogin()) {
@@ -64,7 +64,7 @@ public class main1 {
         }
         if (commandLine.hasOption("role") && commandLine.hasOption("res")) {
             //Authorization
-            role role1 = role.fromString(commandLine.getOptionValue("role"));
+            Role role1 = Role.fromString(commandLine.getOptionValue("role"));
             if (role1 == null) {
                 logger.warn("Incorrect role");
                 return 3;
