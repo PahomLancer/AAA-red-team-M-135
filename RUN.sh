@@ -1,2 +1,2 @@
 #!/bin/bash
-java -jar "aaa-1.4-SNAPSHOT.jar" $*
+java -jar "target/aaa-1.0-SNAPSHOT.jar" $*
