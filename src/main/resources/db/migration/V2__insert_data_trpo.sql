@@ -1,0 +1,9 @@
+INSERT INTO USER_ACCOUNT(ID,NAME,LOGIN,PASSWORD,SALT) VALUES
+(1,'Ron Veyd', 'rveyd','a0c21452fe66b190a9f3f359a2bae9b0','102dcbaa91943bdbdf17590a1109a28d'), -- sup3rpaZZ
+(2,'June Green', 'jgreen','031a58015fc33b69888fce8cbe642709','e36c3d02fc5a7c02560a6003034ec7d1'); -- Qweqrty12
+
+INSERT INTO PERMISSIONS(ID,USER_ID,ROLE,SITE) VALUES
+(1,1,'READ', 'a.'),
+(2,1,'WRITE', 'a.b.'),
+(3,2,'EXECUTE', 'a.b.c.'),
+(4,1,'EXECUTE', 'a.bc.');
