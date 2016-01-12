@@ -1,7 +1,7 @@
-package com.blzr.service;
+package com.andr.service;
 
-import com.blzr.domain.Activity;
-import com.blzr.domain.Authority;
+import com.andr.domain.Activity;
+import com.andr.domain.Authority;
 
 import java.text.DateFormat;
 import java.text.ParseException;

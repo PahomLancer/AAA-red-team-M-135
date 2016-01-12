@@ -1,8 +1,8 @@
-package com.blzr.service;
+package com.andr.service;
 
-import com.blzr.domain.Authority;
-import com.blzr.domain.Role;
-import com.blzr.domain.User;
+import com.andr.domain.Authority;
+import com.andr.domain.Role;
+import com.andr.domain.User;
 
 import java.util.ArrayList;
 import java.util.List;

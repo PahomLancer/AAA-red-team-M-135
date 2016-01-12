@@ -1,4 +1,4 @@
-package com.blzr;
+package com.andr;
 
 public enum ResultType {
     SUCCESS(0),
@@ -9,11 +9,9 @@ public enum ResultType {
     INVALID_ACTIVITY(5);
 
     private final int code;
-
     ResultType(int code) {
         this.code = code;
     }
-
     public int getCode() {
         return code;
     }
