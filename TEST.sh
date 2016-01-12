@@ -6,15 +6,14 @@ test () {
     arr=($1)
     ./RUN.sh ${arr[*]}
     status=$?
-    if [[ $status -eq $2 ]]; then
-        echo TESTING OK [$1] $status "==" $2
-    else
+    if [[ $status -ne $2 ]]; then
         echo TESTING FAIL [$1] $status "!=" $2
         ((result+=1))
+    else
+        echo TESTING OK [$1] $status "==" $2
     fi
     return $status
 }
-
 ./BUILD.sh
 
 test "" 0
@@ -36,10 +35,11 @@ test "-login jdoe -pass sup3rpaZZ -role READ -res a -ds XXX -de XXX -vol XXX" 5
 test "-login jdoe -pass sup3rpaZZ -role READ -res a -ds \"2015-05-01\" -de \"2015-05-02\" -vol XXX" 5
 
 echo
-if [[ $result -ne 0 ]]; then
+if [[ $result -gt 0 ]]; then
     echo $result tests failed
-    exit 1
+
 else
     echo ALL TESTS PASSED
-    exit 0
+  
 fi
+exit ${result}
