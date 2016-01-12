@@ -1,9 +1,9 @@
-package com.blzr.service;
+package com.andr.service;
 
-import com.blzr.domain.Activity;
-import com.blzr.domain.Authority;
-import com.blzr.domain.Role;
-import com.blzr.domain.User;
+import com.andr.domain.Activity;
+import com.andr.domain.Authority;
+import com.andr.domain.Role;
+import com.andr.domain.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.flywaydb.core.Flyway;

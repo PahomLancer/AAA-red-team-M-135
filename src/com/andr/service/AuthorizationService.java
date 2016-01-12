@@ -4,30 +4,17 @@ import com.andr.domain.Authority;
 import com.andr.domain.Role;
 import com.andr.domain.User;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class AuthorizationService {
-    // Temporary storage
-    private static List<User> users = new ArrayList<User>() {{
-        add(new User(1L, "John Doe", "jdoe", "sup3rpaZZ"));
-        add(new User(2L, "Jane Row", "jrow", "Qweqrty12"));
-    }};
+    private final ConnectionService connectionService;
+    private final AuthenticationService authenticationService;
 
-    private static List<Authority> authorities = new ArrayList<Authority>() {{
-        add(new Authority(1L, users.get(0), Role.READ, "a"));
-        add(new Authority(2L, users.get(0), Role.WRITE, "a.b"));
-        add(new Authority(3L, users.get(1), Role.EXECUTE, "a.b.c"));
-        add(new Authority(4L, users.get(0), Role.EXECUTE, "a.bc"));
-    }};
+    public AuthorizationService(ConnectionService connectionService, AuthenticationService authenticationService) {
+        this.connectionService = connectionService;
+        this.authenticationService = authenticationService;
+    }
 
     public User getUser(String user) {
-        for (User u : users) {
-            if (u.getLogin().equals(user)) {
-                return u;
-            }
-        }
-        return null;
+        return connectionService.getUserByLogin(user);
     }
 
     public boolean isUserExist(String username) {
@@ -39,28 +26,27 @@ public class AuthorizationService {
     }
 
     public boolean isPasswordCorrect(String username, String password) {
-        return getUser(username).validatePassword(password);
+        final User user = connectionService.getUserByLogin(username);
+        return authenticationService.validatePassword(password, user.getHash(), user.getSalt());
     }
 
-    public Authority getAuthority(String username, String site, String role) {
+    public Authority getAuthority(String username, String role, String site) {
         User user = getUser(username);
         Role r = Role.getRole(role);
         if (r == null) {
             return null;
         }
 
-        for (Authority a : authorities) {
-            if (a.getUser() == user && a.getRole() == r) {
-                if (isSubSite(a.getSite(), site)) {
-                    return a;
-                }
+        for (Authority a : connectionService.getAuthoritiesByUserAndRole(user, r)) {
+            if (isSubSite(a.getSite(), site)) {
+                return a;
             }
         }
         return null;
     }
 
-    public boolean isAuthorized(String username, String site, String role) {
-        return getAuthority(username, site, role) != null;
+    public boolean isAuthorized(String username, String role, String site) {
+        return getAuthority(username, role, site) != null;
     }
 
     /**
