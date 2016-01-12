@@ -13,6 +13,7 @@ import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
+//opredelenie klassa podkucheniya
 public class ConnectionService {
     private static final Logger log = LogManager.getLogger(ConnectionService.class);
     private final String url = "jdbc:h2:./aaa";
@@ -31,6 +32,7 @@ public class ConnectionService {
         }
     }
 
+    //otklychenie
     public void disconnect() {
         log.info("Disconnecting from DB");
         if (connection != null) {
@@ -42,7 +44,7 @@ public class ConnectionService {
             }
         }
     }
-
+    //migraciya
     public void migrate() {
         log.info("Trying to migrate DB");
         // Create the Flyway instance
