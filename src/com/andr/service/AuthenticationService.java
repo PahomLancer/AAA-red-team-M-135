@@ -7,9 +7,11 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 
+//opredelenie klassa autentifikacii
 public class AuthenticationService {
     private static final Logger log = LogManager.getLogger(AuthenticationService.class);
-
+    
+    //proverka praolya na pravilnost
     public boolean validatePassword(String password, String hash, String salt) {
         try {
             return MessageDigest.isEqual(generateHash(password, salt).getBytes("UTF-8"), hash.getBytes("UTF-8"));
@@ -19,9 +21,7 @@ public class AuthenticationService {
         }
     }
 
-    /**
-     * sha(sha(pass)+salt)
-     */
+    //sha(sha(pass)+salt)
     public static String generateHash(String password, String salt) {
         try {
             MessageDigest sha = MessageDigest.getInstance("SHA-256");
@@ -36,7 +36,8 @@ public class AuthenticationService {
             throw new RuntimeException("Suppress exception", e);
         }
     }
-
+    
+    //genereciya soli
     private static String generateSalt() {
         SecureRandom random = new SecureRandom();
         byte[] bytes = new byte[32];
@@ -44,6 +45,7 @@ public class AuthenticationService {
         return byteArrayToHex(bytes);
     }
 
+    //preobrazovanie dannih
     public static String byteArrayToHex(byte[] a) {
         StringBuilder sb = new StringBuilder(a.length * 2);
         for (byte b : a)
