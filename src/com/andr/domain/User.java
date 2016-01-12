@@ -1,5 +1,6 @@
 package com.andr.domain;
 
+//opredelenie klassa User
 public class User {
     private final Long id;
     private final String name;
@@ -15,22 +16,27 @@ public class User {
         this.salt = salt;
     }
 
+    //return ID
     public Long getId() {
         return id;
     }
 
+    //retun name
     public String getName() {
         return name;
     }
-
+    
+    //return login
     public String getLogin() {
         return login;
     }
-
+    
+    //return hash
     public String getHash() {
         return hash;
     }
 
+    //return sol`
     public String getSalt() {
         return salt;
     }
