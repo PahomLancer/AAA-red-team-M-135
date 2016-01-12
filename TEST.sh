@@ -38,7 +38,8 @@ test "-login jdoe -pass sup3rpaZZ -role READ -res a -ds \"2015-05-01\" -de \"201
 echo
 if [[ $result -gt 0 ]]; then
     echo $result tests failed
+    return 1
 else
     echo ALL TESTS PASSED
+    return 0
 fi
-exit ${result}
