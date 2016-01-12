@@ -1,3 +1,4 @@
 #!/bin/bash
 # add -x for debug output
-java -cp "lib/*:out/aaa.jar" com.andr.Main $@ > /dev/null
+# to suppress log add > /dev/null
+java -cp "lib/*:out/aaa.jar" com.blzr.Main $@
