@@ -1,6 +1,5 @@
-package com.andr.domain;
+package com.blzr.domain;
 
-//opredelenie enuma i return role
 public enum Role {
     READ,
     WRITE,

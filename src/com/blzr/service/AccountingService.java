@@ -1,7 +1,7 @@
-package com.andr.service;
+package com.blzr.service;
 
-import com.andr.domain.Activity;
-import com.andr.domain.Authority;
+import com.blzr.domain.Activity;
+import com.blzr.domain.Authority;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -9,7 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 
-////opdredelenie klassa AccountingService kotorii otslejivaet aktivnost polzovateley
 public class AccountingService {
     private static final DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
     private List<Activity> activities = new LinkedList<Activity>();

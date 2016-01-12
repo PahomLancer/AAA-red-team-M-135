@@ -39,6 +39,5 @@ echo
 if [[ $result -gt 0 ]]; then
     echo $result tests failed
 else
-    result=1
-    echo $result ALL TESTS PASSED
+    echo ALL TESTS PASSED
 fi

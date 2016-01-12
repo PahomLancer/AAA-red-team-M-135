@@ -1,8 +1,8 @@
-package com.andr.service;
+package com.blzr.service;
 
-import com.andr.domain.Authority;
-import com.andr.domain.Role;
-import com.andr.domain.User;
+import com.blzr.domain.Authority;
+import com.blzr.domain.Role;
+import com.blzr.domain.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,8 +37,7 @@ public class AuthorizationService {
     public boolean isRoleExist(String role) {
         return Role.getRole(role) != null;
     }
-    
-    //pravilen li parol
+
     public boolean isPasswordCorrect(String username, String password) {
         return getUser(username).validatePassword(password);
     }
@@ -60,12 +59,17 @@ public class AuthorizationService {
         return null;
     }
 
-    //avtorizovan li
     public boolean isAuthorized(String username, String site, String role) {
         return getAuthority(username, site, role) != null;
     }
 
-    //proverka na podstroku
+    /**
+     * Check if dst subsite of src
+     * a.b, a.b.c -> true
+     * a.b, a.b   -> true
+     * a.b, a     -> false
+     * a.b, a.d   -> false
+     */
     private boolean isSubSite(String src, String dst) {
         String[] srcList = src.split("\\.");
         String[] dstList = dst.split("\\.");

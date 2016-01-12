@@ -1,6 +1,5 @@
-package com.andr;
+package com.blzr;
 
-//kodi rezultatov
 public enum ResultType {
     SUCCESS(0),
     UNKNOWN_LOGIN(1),
@@ -10,9 +9,11 @@ public enum ResultType {
     INVALID_ACTIVITY(5);
 
     private final int code;
+
     ResultType(int code) {
         this.code = code;
     }
+
     public int getCode() {
         return code;
     }

@@ -1,7 +1,7 @@
-package com.andr;
+package com.blzr;
 
-import com.andr.service.AccountingService;
-import com.andr.service.AuthorizationService;
+import com.blzr.service.AccountingService;
+import com.blzr.service.AuthorizationService;
 import org.apache.commons.cli.*;
 
 public class Main {
