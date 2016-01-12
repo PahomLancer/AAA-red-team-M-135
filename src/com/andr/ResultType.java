@@ -1,5 +1,6 @@
 package com.andr;
 
+//kodi rezultatov
 public enum ResultType {
     SUCCESS(0),
     UNKNOWN_LOGIN(1),
