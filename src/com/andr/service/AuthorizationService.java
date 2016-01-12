@@ -4,6 +4,7 @@ import com.andr.domain.Authority;
 import com.andr.domain.Role;
 import com.andr.domain.User;
 
+//opredelenie klassa avtorizacii
 public class AuthorizationService {
     private final ConnectionService connectionService;
     private final AuthenticationService authenticationService;
@@ -12,24 +13,29 @@ public class AuthorizationService {
         this.connectionService = connectionService;
         this.authenticationService = authenticationService;
     }
-
+    
+    //return polzovatel
     public User getUser(String user) {
         return connectionService.getUserByLogin(user);
     }
-
+    
+    //proverka suwestvuet li polzovatel
     public boolean isUserExist(String username) {
         return getUser(username) != null;
     }
 
+    //proverka roli
     public boolean isRoleExist(String role) {
         return Role.getRole(role) != null;
     }
 
+    //proverka parolya
     public boolean isPasswordCorrect(String username, String password) {
         final User user = connectionService.getUserByLogin(username);
         return authenticationService.validatePassword(password, user.getHash(), user.getSalt());
     }
-
+    
+    //avtorizaciya
     public Authority getAuthority(String username, String role, String site) {
         User user = getUser(username);
         Role r = Role.getRole(role);
@@ -45,17 +51,12 @@ public class AuthorizationService {
         return null;
     }
 
+    //proverka avtorizovan li polzovatel
     public boolean isAuthorized(String username, String role, String site) {
         return getAuthority(username, role, site) != null;
     }
 
-    /**
-     * Check if dst subsite of src
-     * a.b, a.b.c -> true
-     * a.b, a.b   -> true
-     * a.b, a     -> false
-     * a.b, a.d   -> false
-     */
+    //proverka na podstroku
     private boolean isSubSite(String src, String dst) {
         String[] srcList = src.split("\\.");
         String[] dstList = dst.split("\\.");
