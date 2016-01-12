@@ -1,8 +1,13 @@
-# red-team-M-135
-red-team-M-135
-Build:
-Build.sh
-Run:
-Run.sh
-Test:
-Test.sh
+# TRPO AAA
+
+## Build
+
+To build the application execute BUILD.sh
+
+## Execute
+
+To run the application execute RUN.sh
+
+## Test
+
+To test the application execute TEST.sh

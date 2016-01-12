@@ -1,3 +1,2 @@
-#!/bin/bash
-# add -x for debug output
-java -cp "lib/*:out/aaa.jar" com.andr.Main $@ > /dev/null
+#!/bin/sh
+java -cp "./libs/*:./conf/:./bin/aaa.jar" MainClass $*
