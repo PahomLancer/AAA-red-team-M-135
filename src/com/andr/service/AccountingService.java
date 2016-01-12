@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 
+////opdredelenie klassa AccountingService kotorii otslejivaet aktivnost polzovateley
 public class AccountingService {
     private static final DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
     private List<Activity> activities = new LinkedList<Activity>();
