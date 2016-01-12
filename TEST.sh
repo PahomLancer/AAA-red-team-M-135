@@ -41,3 +41,4 @@ if [[ $result -gt 0 ]]; then
 else
     echo ALL TESTS PASSED
 fi
+exit ${result}
