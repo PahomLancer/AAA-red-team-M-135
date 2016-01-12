@@ -1,7 +1,6 @@
-.idea/*.*
-./*.xml
+.settings/
+bin/
+.classpath
+*.jpg
 *.iml
-out/*
-bin/*
-*.log
-*.bat
+dependency-reduced-pom.xml

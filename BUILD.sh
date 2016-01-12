@@ -1,10 +1,9 @@
-#!/bin/sh
-mkdir -p bin
-cd src
-javac -classpath ".:../libs/*" -sourcepath EnumConstants -d ../bin EnumConstants/*.java
-javac -classpath ".:../libs/*" -sourcepath . -d ../bin *.java
-cd ..
-jar -cfe bin/aaa.jar MainClass -C bin .
-rm -rf bin/*.class
-rm -rf bin/EnumConstants/*.class
-rm -rf bin/EnumConstants
+#!/bin/bash -v
+rm -rf "out"
+mkdir -p "out/classes"
+find . -name "*.java" | xargs javac -cp "lib/*" -d out/classes -sourcepath src -verbose
+
+mkdir -p "out/lib"
+cp lib/* out/lib/
+
+jar -cfe out/aaa.jar com.andr.Main -C out/classes/ .
