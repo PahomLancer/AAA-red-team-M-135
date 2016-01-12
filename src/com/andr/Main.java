@@ -8,6 +8,7 @@ import org.apache.commons.cli.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+//Main
 public class Main {
     private static final Logger log = LogManager.getLogger(Main.class);
     private final Options options;
@@ -32,7 +33,8 @@ public class Main {
                 .addOption("vol", true, "volume")
                 .addOption("h", false, "help");
     }
-
+    
+    //soedinenie 
     private ResultType connect(String[] args) {
         try {
             connectionService.connect();
@@ -42,6 +44,7 @@ public class Main {
         }
     }
 
+    //
     private ResultType parseArgs(String[] args) {
         log.info("Received params {}", (Object) args);
         CommandLineParser parser = new DefaultParser();
@@ -53,23 +56,22 @@ public class Main {
                 printHelp();
                 result = ResultType.SUCCESS;
             } else {
-                // First step: Authentication
+                //Authentication
                 if (cmd.hasOption("login") && cmd.hasOption("pass")) {
                     String login = cmd.getOptionValue("login");
                     String pass = cmd.getOptionValue("pass");
                     log.info("Received login {} and pass {}", login, pass);
                     result = authenticate(login, pass);
 
-                    // Second step: Authorization
+                    //Authorization
                     if (result == ResultType.SUCCESS && cmd.hasOption("res") && cmd.hasOption("role")) {
                         String role = cmd.getOptionValue("role");
                         String res = cmd.getOptionValue("res");
                         log.info("Received res {} and role {}", role, res);
                         result = authorize(login, role, res);
 
-                        // Third step: Accounting
+                        //Accounting
                         if (result == ResultType.SUCCESS &&
-                                // And all activity values specified
                                 cmd.hasOption("ds") && cmd.hasOption("de") && cmd.hasOption("vol")) {
                             String ds = cmd.getOptionValue("ds");
                             String de = cmd.getOptionValue("de");
@@ -93,11 +95,13 @@ public class Main {
         return result;
     }
 
+    //pomow
     private void printHelp() {
         HelpFormatter formatter = new HelpFormatter();
         formatter.printHelp("aaa", options);
     }
-
+    
+    //kod autentifikacii
     private ResultType authenticate(String username, String password) {
         if (!authorizationService.isUserExist(username)) {
             log.warn("User {} not exists", username);
@@ -111,6 +115,7 @@ public class Main {
         }
     }
 
+    //kod avtorizacii
     private ResultType authorize(String username, String role, String site) {
         if (!authorizationService.isRoleExist(role)) {
             log.warn("Role {} not exist", role);
@@ -123,7 +128,8 @@ public class Main {
             return ResultType.SUCCESS;
         }
     }
-
+    
+    //kod accounta
     private ResultType account(String login, String role, String res, String ds, String de, String vol) {
         try {
             Long total = accountingService.addActivity(
