@@ -1,4 +1,4 @@
-package com.blzr.domain;
+package com.andr.domain;
 
 public class Authority {
     private Long id;

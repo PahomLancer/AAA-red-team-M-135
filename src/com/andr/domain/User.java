@@ -1,4 +1,4 @@
-package com.blzr.domain;
+package com.andr.domain;
 
 import java.security.MessageDigest;
 import java.security.SecureRandom;
@@ -62,9 +62,6 @@ public class User {
         return MessageDigest.isEqual(generateHash(password, this.salt), this.getHash());
     }
 
-    /**
-     * sha(sha(pass)+salt)
-     */
     public static byte[] generateHash(String password, byte[] salt) {
         try {
             MessageDigest sha = MessageDigest.getInstance("SHA-256");

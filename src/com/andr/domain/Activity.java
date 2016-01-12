@@ -1,4 +1,4 @@
-package com.blzr.domain;
+package com.andr.domain;
 
 import java.util.Date;
 
