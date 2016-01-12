@@ -21,6 +21,7 @@ public class Activity {
         this(null, authority, loginDate, logoutDate, volume);
     }
 
+// vozvrawaet ID
     public Long getId() {
         return id;
     }
