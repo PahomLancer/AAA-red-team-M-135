@@ -8,4 +8,4 @@ cp -r resources/ out/classes/
 mkdir -p "out/lib"
 cp lib/* out/lib/
 
-jar -cfe out/aaa.jar com.blzr.Main -C out/classes/ .
+jar -cfe out/aaa.jar com.andr.Main -C out/classes/ .
