@@ -37,7 +37,8 @@ public class AuthorizationService {
     public boolean isRoleExist(String role) {
         return Role.getRole(role) != null;
     }
-
+    
+    //pravilen li parol
     public boolean isPasswordCorrect(String username, String password) {
         return getUser(username).validatePassword(password);
     }
@@ -59,17 +60,12 @@ public class AuthorizationService {
         return null;
     }
 
+    //avtorizovan li
     public boolean isAuthorized(String username, String site, String role) {
         return getAuthority(username, site, role) != null;
     }
 
-    /**
-     * Check if dst subsite of src
-     * a.b, a.b.c -> true
-     * a.b, a.b   -> true
-     * a.b, a     -> false
-     * a.b, a.d   -> false
-     */
+    //proverka na podstroku
     private boolean isSubSite(String src, String dst) {
         String[] srcList = src.split("\\.");
         String[] dstList = dst.split("\\.");
