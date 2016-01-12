@@ -21,23 +21,27 @@ public class Activity {
         this(null, authority, loginDate, logoutDate, volume);
     }
 
-// vozvrawaet ID
+    //return ID
     public Long getId() {
         return id;
     }
 
+    //return prava
     public Authority getAuthority() {
         return authority;
     }
 
+    //return data vhoda
     public Date getLoginDate() {
         return loginDate;
     }
 
+    //return data vihoda
     public Date getLogoutDate() {
         return logoutDate;
     }
 
+    //return znachenie prav
     public Long getVolume() {
         return volume;
     }
