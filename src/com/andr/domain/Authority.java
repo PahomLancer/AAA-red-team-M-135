@@ -1,5 +1,6 @@
 package com.andr.domain;
 
+//opredelenie klassa avtorizacii
 public class Authority {
     private final Long id;
     private final User user;
@@ -12,19 +13,23 @@ public class Authority {
         this.role = role;
         this.site = site;
     }
-
+    
+    //return ID
     public Long getId() {
         return id;
     }
 
+    //return polzovatel
     public User getUser() {
         return user;
     }
 
+    //return role
     public Role getRole() {
         return role;
     }
-
+    
+    //return site
     public String getSite() {
         return site;
     }
