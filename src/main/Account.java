@@ -15,7 +15,7 @@ public class Account {
     private int value;
     private Resource resources;
 
-    public Account(int id, role role, user user, resource resources) {
+    public Account(int id, Role role, User user, Resource resources) {
         this.id = id;
         this.role = role;
         this.user = user;
