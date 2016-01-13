@@ -1,5 +1,11 @@
-#!/bin/bash 
-mkdir -p workAP 
-javac -classpath ".:../libs/*" -sourcepath EnumConstants -d ../workAP EnumConstants/*.java
-javac -classpath ".:../libs/*" -sourcepath . -d ../workAP *.java
-jar -cfe AAA.jar main1 -C workAP .
+#!/bin/bash -v
+rm -rf "workAP"
+mkdir -p workAP/classes 
+find . -name "*.java" | xargs javac -cp "lib/*" -d workAP/classes -sourcepath src -verbose
+
+cp -r resources/ workAP/classes/
+
+mkdir -p "workAP/lib"
+cp lib/* workAP/lib/
+
+jar -cfe out/aaa.jar main1 -C workAP/classes/ .
