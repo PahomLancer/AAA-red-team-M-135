@@ -1,23 +1,23 @@
-package main;
+package com.company.domains;
 
-public class resource {
+public class Resource {
     private int id;
     private String name;
-    private resource id_parent;
-    //Задаем ресурсы
-    public resource(int id, String name, resource id_parent) {
+    private Resource id_parent;
+    //Set recoursess
+    public Resource(int id, String name, Resource id_parent) {
         this.id = id;
         this.name = name;
         this.id_parent = id_parent;
     }
-    //Возвращаем переменные
+    //Get perem
     public int returnId() {
         return id;
     }
     public String returnName() {
         return name;
     }
-    public resource returnId_parent() {
+    public Resource returnId_parent() {
         return id_parent;
     }
 }

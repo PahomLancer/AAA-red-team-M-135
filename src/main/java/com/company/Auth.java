@@ -1,9 +1,13 @@
-package main;
+package com.company;
 
 //import main.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.flywaydb.core.Flyway;
+
+import com.company.domains.Resource;
+import com.company.domains.Role;
+import com.company.domains.User;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -12,10 +16,10 @@ import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-public class auth {
+public class Auth {
     private static final Logger logger = LogManager.getLogger(Auth.class);
     Connection connection;
-    resource resource;
+    Resource resource;
     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     private boolean resAccess = false;
     private boolean correctVolume = false;
@@ -25,21 +29,21 @@ public class auth {
     public java.util.Date dateIn;
     public java.util.Date dateOut;
     int volume;
-    user user;
-    public auth() throws SQLException {
-        auth.logger.debug("Establishing connection with database");
+    User user;
+    public Auth() throws SQLException {
+        Auth.logger.debug("Establishing connection with database");
         connection = getConnection();
         df.setLenient(false);
-        auth.logger.debug("Migration");
-        //Создаем Flyway instance
+        Auth.logger.debug("Migration");
+        //Creating Flyway instance
         Flyway flyway = new Flyway();
-        // Указываем на бд
-        flyway.setDataSource("jdbc:h2:./m135-red", "sa", "");
-        // Начало миграции
+        //Seting database
+        flyway.setDataSource("jdbc:h2:./aaa", "sa", "");
+        //Start migration
         flyway.migrate();
     }
     public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:h2:./m135-red", "sa", "");
+        return DriverManager.getConnection("jdbc:h2:./aaa", "sa", "");
     }
     public static String md5(String input) {
         String md5 = null;
@@ -47,7 +51,7 @@ public class auth {
         try {
             MessageDigest digest = MessageDigest.getInstance("MD5");
             digest.update(input.getBytes(), 0, input.length());
-            //Преобразуем число
+            //Reorg number
             md5 = new BigInteger(1, digest.digest()).toString(16);
         } catch (NoSuchAlgorithmException e) {
 
@@ -55,49 +59,49 @@ public class auth {
         }
         return md5;
     }
-    //Аутентификация
+    //Authethication
     public void authentication(String login, String pass) throws SQLException {
-        auth.logger.debug("Checking authentication");
+        Auth.logger.debug("Checking authentication");
         try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM Auth WHERE login=?")) {
             statement.setString(1, login);
 
             try (ResultSet result = statement.executeQuery()) {
-                // Проверяем логин
+                //Checking login
                 correctLogin = result.first();
                 if (!correctLogin) {
                     return;
                 }
-                // Провереяем пароль
+                //Checking password
                 correctPass = md5(md5(pass) + result.getString("salt")).equals(result.getString("password"));
                 if (!correctPass) {
                     return;
                 }
-                user = new user(result.getInt("id"),result.getString("name"),result.getString("password"),result.getString("login"),result.getString("salt"));
+                user = new User(result.getInt("id"),result.getString("name"),result.getString("password"),result.getString("login"),result.getString("salt"));
             }
         }
     }
 
-    public void res(String resource, role role) throws SQLException {
-        auth.logger.debug("Checking access");
+    public void res(String resource, Role role) throws SQLException {
+        Auth.logger.debug("Checking access");
         try (PreparedStatement statement = connection.prepareStatement("SELECT id FROM resource WHERE name = ?")) {
             statement.setString(1, resource);
             try (ResultSet result = statement.executeQuery()) {
                 resAccess = result.first();
                 if (!resAccess) {
-                    // Доступ запрещен
+                    //Dinede access
                     return;
                 }
 
                 int resource_id = result.getInt("id");
-                this.resource = new resource(resource_id, resource, null);
+                this.resource = new Resource(resource_id, resource, null);
 
-                // Проверяем доступ
+                //Checking access
                 checkAccess(resource_id, role);
             }
         }
     }
 
-    public void checkAccess(int resource_id, role role) throws SQLException {
+    public void checkAccess(int resource_id, Role role) throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) AS count FROM res_user WHERE res_id = ? AND auth_id = ? AND Role = ?")) {
             statement.setInt(1, resource_id);
             statement.setInt(2, user.returnId());
@@ -124,7 +128,7 @@ public class auth {
             }
         }
     }
-    // Проверяем корректность даты
+    //Checking date
     public void checkDate(String firstDate, String lastDate) {
         try {
             dateIn = df.parse(firstDate);
@@ -135,7 +139,7 @@ public class auth {
         }
     }
     public void insertToAccau(String role) throws SQLException {
-        auth.logger.debug("Writing to Accounting");
+        Auth.logger.debug("Writing to Accounting");
         try (PreparedStatement insertToAcc = connection.prepareStatement("INSERT INTO accau(Role, Auth_id, Date_in, Date_out, volume, res_id) " +
                 "VALUES (?,?,?,?,?,?)")) {
             insertToAcc.setString(1, role);
@@ -147,7 +151,7 @@ public class auth {
             insertToAcc.executeUpdate();
         }
     }
-    // Проверяем корректность объема
+    //Checking value
     public void checkVolume(String str) {
         try {
             volume = Integer.parseInt(str);
@@ -172,42 +176,3 @@ public class auth {
         return correctPass;
     }
 }
-//R1-R2 version
-/*
-public class auth{
-	int id = 0;
-	public String login;
-	private String password;
-	private String salt = "qa12ws34ed56rf78tg90";
-	//Задаем пользователя
-	public void setUser(String login, String password){
-		this.login = login;
-		//this.password = password;
-		this.password = hash.makeHash(password, salt);
-		this.id = 0;
-	}
-	//Проверка пользователя
-	public int checkUser(auth user){
-		if (user.login.equals(this.login))
-		{
-			if (user.password.equals(this.password))
-			{
-				return 1;
-			}
-			return 2;
-		}
-		return 3;
-	}
-	//Выбираем пользователя
-	public auth getUser(auth user) {
-        user.id = this.id;
-        user.password = this.password;
-        return user;
-    }
-	//Выводим пользователя
-	public void printUser()
-	{
-		System.out.println(this.id + " " + this.login + " " + this.password);
-	}
-}
-*/

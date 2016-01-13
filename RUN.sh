@@ -1,2 +1,2 @@
 #!/bin/bash
-java -cp "lib/*:workAP/aaa.jar" Main $@
+java -jar "target/aaa-1.0-SNAPSHOT.jar" $*

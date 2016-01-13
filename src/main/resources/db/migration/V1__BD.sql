@@ -14,14 +14,14 @@ CREATE CACHED TABLE PUBLIC.AUTH(
 ALTER TABLE PUBLIC.AUTH ADD CONSTRAINT PUBLIC.CONSTRAINT_1 PRIMARY KEY(ID);   
 -- 8 +/- SELECT COUNT(*) FROM PUBLIC.AUTH;    
 INSERT INTO PUBLIC.AUTH(ID, NAME, PASSWORD, LOGIN, SALT) VALUES
-(1, 'Andrey', '3b7aaba10b5bd68a1a8c2205ff0bb835', 'pahomlancer', 'ololo'),
-(2, 'Gleb', '6b75670a96fb29dee08a34ce0e1e5688', 'Hleb', '5hTt3h76t2'),
-(3, 'Oleg', 'dce5e9972ee1fe72dec0258071d41a00', 'Heartsthone', 'pp54tyu61h'),
-(4, 'Vasya', 'ecd05256712412e97c7bb97f820cc6d8', 'Java', '25gty5y8wd'),
-(5, 'Alex', '4fa169d0996cb699d50645fbe1e27f93', 'VEPEHA', 'bn6kd18p89'),
-(6, 'Slanesh', '76426cf1f9428154b3e4d817d660f296', 'Eldar', 'u6p423hpd9'),
-(7, 'Nurgl', 'd4dcb360ec4163805e5ffb70fb684cb5', 'Chaos', 'dfgdfg3324terwt345as1'),
-(8, 'Khorn', 'a440866eb82b8ac87d45b8cade0dc028', 'Blood', '47fdp341jfdg45');       
+(1, 'Valera', '3b7aaba10b5bd68a1a8c2205ff0bb835', 'arxangel', 'ololo'),
+(2, 'Kolya', '6b75670a96fb29dee08a34ce0e1e5688', 'Oracle', '5hTt3h76t2'),
+(3, 'Victor', 'dce5e9972ee1fe72dec0258071d41a00', 'PowPow', 'pp54tyu61h'),
+(4, 'Alexey', 'ecd05256712412e97c7bb97f820cc6d8', 'SClumba22', '25gty5y8wd'),
+(5, 'Oleg', '4fa169d0996cb699d50645fbe1e27f93', 'SolDlyaVann', 'bn6kd18p89'),
+(6, 'Vitaly', '76426cf1f9428154b3e4d817d660f296', 'VaitalyaSuper', 'u6p423hpd9'),
+(7, 'John Doe', 'd4dcb360ec4163805e5ffb70fb684cb5', 'jdoe', 'dfgdfg3324terwt345as1'),
+(8, 'Jane Row', 'a440866eb82b8ac87d45b8cade0dc028', 'jrow', '47fdp341jfdg45');       
 CREATE CACHED TABLE PUBLIC.RESOURCE(
     ID INT DEFAULT (NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_0EBB7A13_8A90_4ED5_961F_FE9DFD5DDB8C) NOT NULL NULL_TO_DEFAULT SEQUENCE PUBLIC.SYSTEM_SEQUENCE_0EBB7A13_8A90_4ED5_961F_FE9DFD5DDB8C,
     NAME VARCHAR(64) NOT NULL,
