@@ -1,11 +1,5 @@
-package com.company.domains;
-
 import java.util.Date;
-
-//import main.auth;
-
 import java.util.Calendar;
-//import java.util.Date;
 
 public class Accounting {
     private int id;
