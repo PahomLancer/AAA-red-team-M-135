@@ -7,18 +7,18 @@ public class role {
 	private roles rights;
 	private auth user;
 	private String source;
-	//Устанавливаем права
+
 	 public void setRole(auth user, roles rights, String source){
 	        id++;
 	        this.user = user;
 	        this.rights = rights;
 	        this.source = source;
 	    }
-	 //Возвращаем пользователя
+
 	 public auth getUser() {
 	        return this.user;
 	    }
-	 //Проверяем права
+
 	 public int checkRights(role role) {
 	        String parse[] = role.source.split("\\.");
 	        String[] atrStr = this.source.split("\\.");
@@ -42,7 +42,7 @@ public class role {
 	        }
 	    }
 }
-// Старая версия role
+
 	/* public void setRole(int id, auth user, String role, String source){
 		this.id = id;
 		this.user = user;
