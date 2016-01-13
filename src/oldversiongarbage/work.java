@@ -1,10 +1,4 @@
-package work;
-//import default.account;
-//import account.account;
-import auth.auth;
-import role.role;
-//import role.roles;
-
+package oldversiongarbage;
 //import javax.annotation.processing.SupportedSourceVersion;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,6 +6,9 @@ import java.util.Calendar;
 //import java.util.Date;
 import java.util.GregorianCalendar;
 
+import main.auth;
+import main.role;
+/*
 public class work {
 
 	static public void check(String in, auth[] user, role[] role) throws ParseException {
@@ -244,4 +241,4 @@ public class work {
 
     }
     */
-}
+//}
