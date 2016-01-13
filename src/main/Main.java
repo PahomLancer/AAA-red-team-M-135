@@ -8,8 +8,8 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 
 
-public class main1 {
-    private static final Logger logger = LogManager.getLogger(main1.class);
+public class Main {
+    private static final Logger logger = LogManager.getLogger(Main.class);
     private static Option makeOptionWithArgument(String shortName, String description, boolean isRequired) {
         Option result = new Option(shortName, true, description);
         result.setArgs(1);
@@ -49,7 +49,7 @@ public class main1 {
         }
         logger.warn("***********START***********");
         auth auth = new auth();
-        //Аутентификация
+
         auth.authentication(commandLine.getOptionValue("login"), commandLine.getOptionValue("pass"));
         if (!auth.isCorrectLogin()) {
             logger.warn("Incorrect login");
@@ -60,20 +60,20 @@ public class main1 {
             return 2;
         }
         if (commandLine.hasOption("role") && commandLine.hasOption("res")) {
-            //Авторизация
+
             role role = role.fromString(commandLine.getOptionValue("role"));
             if (role == null) {
                 logger.warn("Incorrect role");
                 return 3;
             }
-            //Проверка доступа к ресурсу
+
             auth.res(commandLine.getOptionValue("res"), role);
             if (!auth.isResAccess()) {
                 logger.warn("Access denied");
                 return 4;
             }
             if (commandLine.hasOption("ds") && commandLine.hasOption("de") && commandLine.hasOption("vol")) {
-            	//Аккаунтинг
+
                 auth.checkVolume(commandLine.getOptionValue("vol"));
                 auth.checkDate(commandLine.getOptionValue("ds"), commandLine.getOptionValue("de"));
                 if (!auth.isCorrectVolume() || !auth.isCorrectDate()) {
@@ -103,7 +103,7 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.util.Scanner;
 
-public class main1 {
+public class Main {
 	 public static void main(String[] args) throws ParseException {
 	        String login = "";
 	        String password = "";
@@ -117,8 +117,7 @@ public class main1 {
 	        auth user1 = new auth();
 	        role role1 = new role();
 	        account acc1 = new account();
-	        //Задаю пользователей
-	        //Тесты
+
 	        auth user[] = new auth[2];
 	        for (int i = 0; i < 2; i++)
 	            user[i] = new auth();
@@ -132,7 +131,7 @@ public class main1 {
 	        //user[2].setUser("Oleg Shlehtemayer", "zpxocivubyntmrr");
 	        //user[3].setUser("Vasiliy Kupchinskiy", "uynbjgld");
 	        //user[4].setUser("Mihail Shamin", "pocxopxc");
-	        //Задаю права пользователям
+
 	        /*role role[] = new role[8];
 	        for (int i = 0; i < role.length; i++)
 	            role[i] = new role();
@@ -145,7 +144,7 @@ public class main1 {
 	        role[6].setRole(user[4], roles.READ, "a");
 	        role[7].setRole(user[4], roles.WRITE, "a");
 	        */
-	        //Тесты
+
 /*
 	        role role[] = new role[4];
 	        for (int i = 0; i < role.length; i++)
@@ -155,7 +154,7 @@ public class main1 {
 	        role[2].setRole(user[1], roles.EXEC, "a.b.c");
 	        role[3].setRole(user[0], roles.EXEC, "a.bc");
 	        String auto = "";
-	        //Задаю опции
+
 	        Options options = new Options()
 	                .addOption("h", false, "print this help message")
 	                .addOption("login", true, "login")
@@ -243,9 +242,9 @@ public class main1 {
 	    }
 }
 */
-//Старая версия
+
 /*
-public class main1 {
+public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
         int n = 0;
