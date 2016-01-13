@@ -7,14 +7,14 @@ public class auth{
 	public String login;
 	private String password;
 	private String salt = "qa12ws34ed56rf78tg90";
-	//Задаем пользователя
+
 	public void setUser(String login, String password){
 		this.login = login;
 		//this.password = password;
 		this.password = hash.makeHash(password, salt);
 		this.id = 0;
 	}
-	//Проверка пользователя
+
 	public int checkUser(auth user){
 		if (user.login.equals(this.login))
 		{
@@ -26,13 +26,13 @@ public class auth{
 		}
 		return 3;
 	}
-	//Выбираем пользователя
+
 	public auth getUser(auth user) {
         user.id = this.id;
         user.password = this.password;
         return user;
     }
-	//Выводим пользователя
+
 	public void printUser()
 	{
 		System.out.println(this.id + " " + this.login + " " + this.password);
