@@ -9,3 +9,4 @@ mkdir -p "out/lib"
 cp lib/* out/lib/
 
 jar -cfe out/aaa.jar com.andr.Main -C out/classes/ .
+
