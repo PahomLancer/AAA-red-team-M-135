@@ -1,2 +1,9 @@
-*.java
-src/main/Role.java
+.settings/
+bin/
+target/
+.classpath
+*.jpg
+*.iml
+dependency-reduced-pom.xml
+aaa.*.db
+aaa.log
