@@ -1,5 +1,5 @@
 package oldversiongarbage;
-//Енум прав
-public enum roles {
+
+public enum Roles {
     READ, WRITE, EXEC;
 }
