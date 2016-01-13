@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.Calendar;
 //import java.util.Date;
 
-public class account {
+public class Account {
     private int id;
     private role role;
     private user user;
@@ -14,8 +14,8 @@ public class account {
     private Date logoutDate;
     private int value;
     private resource resources;
-    //Задаем аккаунт
-    public account(int id, role role, user user, resource resources) {
+
+    public Account(int id, role role, user user, resource resources) {
         this.id = id;
         this.role = role;
         this.user = user;
@@ -24,15 +24,15 @@ public class account {
         this.value = 0;
         this.resources = resources;
     }
-    //Запоминаем разлогирование
+
     public void setLogoutDate(Date logoutDate) {
         this.logoutDate = logoutDate;
     }
-    //Задаем объем
+
     public void setValue(int value) {
         this.value = value;
     }
-    //Возвращаем переменные
+
     public int returnId() {
         return id;
     }
@@ -57,7 +57,7 @@ public class account {
 }
 //R1-R2 version
 //public class account {
-	//Старая версия
+
 	/*
 		int accountid[] = {0, 1, 2, 3, 4};
 		private String accountname[] = {"Andrew", "Vasiliy", "Michail", "Sergey", "Kate" };
@@ -73,7 +73,7 @@ public class account {
 	private Date end_date;
 	private int value;
 	*/
-	//Старая версия
+
 	/*
 	public String seelogpass(int id){ 
 		if (id <= maxid)
@@ -93,7 +93,7 @@ public class account {
 		return phrase;
 	}
 	*/
-	//Установка аккаунта
+
 	/*
 	public void setAccount(auth user, role role, Date start_date, Date end_date, int value) {
         this.user = user;
@@ -102,7 +102,7 @@ public class account {
         this.end_date = end_date;
         this.value = value;
     }
-	//Вывод аккаунта
+
     public void showAccount() {
         System.out.println(start_date + " " + end_date + " " + value);
     }
