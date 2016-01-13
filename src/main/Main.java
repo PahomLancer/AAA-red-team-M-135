@@ -61,7 +61,7 @@ public class Main {
         }
         if (commandLine.hasOption("role") && commandLine.hasOption("res")) {
 
-            role role = role.fromString(commandLine.getOptionValue("role"));
+            Role role = role.fromString(commandLine.getOptionValue("role"));
             if (role == null) {
                 logger.warn("Incorrect role");
                 return 3;
