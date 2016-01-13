@@ -1,4 +1,3 @@
-package com.company.domains;
 //Enum rights
 public enum Role {
     read("read"), write("write"), execute("execute");
