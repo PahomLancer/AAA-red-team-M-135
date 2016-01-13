@@ -1,3 +1,3 @@
 #!/bin/bash
-java -cp "lib/*:workAP/aaa.jar" Main $@ > /dev/null
+java -cp "lib/*:aaa/aaa.jar" Main $@ > /dev/null
 
