@@ -10,3 +10,4 @@ mkdir -p "workAP/lib"
 cp lib/* workAP/lib/
 
 jar -cfe workAP/aaa.jar Main -C workAP/classes/ .
+
