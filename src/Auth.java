@@ -1,13 +1,10 @@
-package com.company;
-
-//import main.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.flywaydb.core.Flyway;
 
-import com.company.domains.Resource;
-import com.company.domains.Role;
-import com.company.domains.User;
+import Resource;
+import Role;
+import User;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
