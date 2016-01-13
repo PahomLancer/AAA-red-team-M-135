@@ -3,7 +3,7 @@ rm -rf "workAP"
 mkdir -p workAP/classes 
 find . -name "*.java" | xargs javac -cp "lib/*" -d workAP/classes -sourcepath src -verbose
 
-cp -r src/ workAP/classes/
+#cp -r src/ workAP/classes/
 cp -r resources/ workAP/classes/
 
 mkdir -p "workAP/lib"
