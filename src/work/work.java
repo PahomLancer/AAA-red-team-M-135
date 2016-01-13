@@ -97,7 +97,7 @@ public class work {
 
         System.exit(0);
     }
-ÿ
+
 /*	 static public void check(String in, auth[] user, role[] role) throws ParseException {
 		 int i = 0;
 		 String[] str1 = in.split(" ");
