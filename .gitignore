@@ -1,9 +1,7 @@
 .settings/
 bin/
-target/
+.project
 .classpath
 *.jpg
 *.iml
 dependency-reduced-pom.xml
-aaa.*.db
-aaa.log
