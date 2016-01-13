@@ -1,5 +1,3 @@
-package com.company.domains;
-
 public class User {
     private int id;
     private String name;
@@ -14,7 +12,7 @@ public class User {
         this.login = login;
         this.salt = salt;
     }
-    //Return incapsul perem
+    //Return perem
     public int returnId() {
         return id;
     }
