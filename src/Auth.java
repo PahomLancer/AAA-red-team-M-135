@@ -2,9 +2,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.flywaydb.core.Flyway;
 
-//import Resource;
-//import Role;
-//import User;
+import domains.Resource;
+import domains.Role;
+import domains.User;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

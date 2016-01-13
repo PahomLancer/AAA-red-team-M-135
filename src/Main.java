@@ -2,7 +2,7 @@ import org.apache.commons.cli.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-//import Role;
+import domains.Role;
 
 import java.io.PrintWriter;
 import java.sql.SQLException;
