@@ -27,7 +27,7 @@ public class role {
 	                if (parse[i].equals(atrStr[i])) {
 	                    continue;
 	                } else {
-	                    System.out.println("No Dostup(4)");
+	                    //System.out.println("No Dostup(4)");
 	                    System.exit(4);
 	                }
 
