@@ -11,4 +11,4 @@ cp -r src/work/ workAP/classes/
 mkdir -p "workAP/lib"
 cp lib/* workAP/lib/
 
-jar -cfe out/aaa.jar main1 -C workAP/classes/ .
+jar -cfe workAP/aaa.jar Main -C workAP/classes/ .
