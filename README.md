@@ -1,8 +1,13 @@
 # red-team-M-135
 red-team-M-135
-Build:
-Build.sh
-Run:
-Run.sh
-Test:
-Test.sh
+Build instructions
+
+To build project execute ./BUILD.bat
+
+Run instructions
+
+To run application execute ./RUN.bat
+
+Test instructions
+
+To run all tests execute ./TEST.bat
