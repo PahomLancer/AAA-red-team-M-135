@@ -1,13 +1,13 @@
 #!/bin/bash -v
-rm -rf "workAP"
-mkdir -p workAP/classes 
-find . -name "*.java" | xargs javac -cp "lib/*" -d workAP/classes -sourcepath src -verbose
+rm -rf "aaa"
+mkdir -p aaa/classes 
+find . -name "*.java" | xargs javac -cp "lib/*" -d aaa/classes -sourcepath src -verbose
 
-#cp -r src/ workAP/classes/
-cp -r resources/ workAP/classes/
+#cp -r src/ aaa/classes/
+cp -r resources/ aaa/classes/
 
-mkdir -p "workAP/lib"
-cp lib/* workAP/lib/
+mkdir -p "aaa/lib"
+cp lib/* aaa/lib/
 
-jar -cfe workAP/aaa.jar Main -C workAP/classes/ .
+jar -cfe aaa/aaa.jar Main -C aaa/classes/ .
 
