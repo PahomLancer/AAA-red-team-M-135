@@ -2,15 +2,15 @@ package oldversiongarbage;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException; 
-public class hash {
-	//Создать хэш
+public class Hash {
+
 	public static String makeHash(String password, String salt) {//hash(hash(pass)+salt)
 		password = getHash(password);
 		password += salt;
 		password = getHash(password);
 		return password; 
 	}
-	//Получить хэш
+
 	public static String getHash(String str) {
 		MessageDigest md5 ;
 		StringBuffer hexString = new StringBuffer();
