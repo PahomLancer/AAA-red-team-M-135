@@ -4,7 +4,7 @@ import role.role;
 import java.util.Date;
 
 public class account {
-	//Старая версия
+
 	/*
 		int accountid[] = {0, 1, 2, 3, 4};
 		private String accountname[] = {"Andrew", "Vasiliy", "Michail", "Sergey", "Kate" };
@@ -18,7 +18,7 @@ public class account {
 	private Date start_date;
 	private Date end_date;
 	private int value;
-	//Старая версия
+
 	/*
 	public String seelogpass(int id){ 
 		if (id <= maxid)
@@ -38,7 +38,7 @@ public class account {
 		return phrase;
 	}
 	*/
-	//Установка аккаунта
+
 	public void setAccount(auth user, role role, Date start_date, Date end_date, int value) {
         this.user = user;
         this.role = role;
@@ -46,7 +46,7 @@ public class account {
         this.end_date = end_date;
         this.value = value;
     }
-	//Вывод аккаунта
+
     public void showAccount() {
         System.out.println(start_date + " " + end_date + " " + value);
     }
