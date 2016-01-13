@@ -26,7 +26,7 @@ public class main1 {
 	        auth user1 = new auth();
 	        role role1 = new role();
 	        account acc1 = new account();
-û
+
 	        auth user[] = new auth[2];
 	        for (int i = 0; i < 2; i++)
 	            user[i] = new auth();
