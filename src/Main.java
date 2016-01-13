@@ -99,7 +99,7 @@ public class Main {
 	                    rol = cmd.getOptionValue("role");
 	                    arg++;
 	                } else {
-	                    System.out.print("Wrong role(3)");
+	                    //System.out.print("Wrong role(3)");
 	                    System.exit(3);
 	                }
 
