@@ -8,12 +8,12 @@ import java.util.Calendar;
 
 public class Account {
     private int id;
-    private role role;
-    private user user;
+    private Role role;
+    private User user;
     private Date loginDate;
     private Date logoutDate;
     private int value;
-    private resource resources;
+    private Resource resources;
 
     public Account(int id, role role, user user, resource resources) {
         this.id = id;
