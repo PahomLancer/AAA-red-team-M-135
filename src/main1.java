@@ -6,8 +6,7 @@ import account.account;
 import work.work;
 import role.roles;
 
-//import commonscli131.*;
-//import lib.commons-cli-1.3.1;
+
 import org.apache.commons.cli.*;
 import java.sql.Date;
 import java.text.ParseException;
@@ -27,8 +26,7 @@ public class main1 {
 	        auth user1 = new auth();
 	        role role1 = new role();
 	        account acc1 = new account();
-	        //Задаю пользователей
-	        //Тесты
+Г»
 	        auth user[] = new auth[2];
 	        for (int i = 0; i < 2; i++)
 	            user[i] = new auth();
@@ -42,7 +40,7 @@ public class main1 {
 	        //user[2].setUser("Oleg Shlehtemayer", "zpxocivubyntmrr");
 	        //user[3].setUser("Vasiliy Kupchinskiy", "uynbjgld");
 	        //user[4].setUser("Mihail Shamin", "pocxopxc");
-	        //Задаю права пользователям
+
 	        /*role role[] = new role[8];
 	        for (int i = 0; i < role.length; i++)
 	            role[i] = new role();
@@ -55,7 +53,7 @@ public class main1 {
 	        role[6].setRole(user[4], roles.READ, "a");
 	        role[7].setRole(user[4], roles.WRITE, "a");
 	        */
-	        //Тесты
+
 	        role role[] = new role[4];
 	        for (int i = 0; i < role.length; i++)
 	            role[i] = new role();
@@ -64,7 +62,7 @@ public class main1 {
 	        role[2].setRole(user[1], roles.EXEC, "a.b.c");
 	        role[3].setRole(user[0], roles.EXEC, "a.bc");
 	        String auto = "";
-	        //Задаю опции
+
 	        Options options = new Options()
 	                .addOption("h", false, "print this help message")
 	                .addOption("login", true, "login")
@@ -152,7 +150,7 @@ public class main1 {
 	    }
 }
 
-//Старая версия
+
 /*
 public class main1 {
 	public static void main(String[] args) {
