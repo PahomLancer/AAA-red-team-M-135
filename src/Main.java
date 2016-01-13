@@ -1,11 +1,8 @@
-package com.company;
-
-
 import org.apache.commons.cli.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.company.domains.Role;
+import Role;
 
 import java.io.PrintWriter;
 import java.sql.SQLException;
