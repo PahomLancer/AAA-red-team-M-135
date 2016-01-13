@@ -6,14 +6,14 @@ import java.util.Calendar;
 //import java.util.Date;
 import java.util.GregorianCalendar;
 
-import main.auth;
-import main.role;
+import main.Auth;
+import main.Role;
 /*
 public class work {
 
 	static public void check(String in, auth[] user, role[] role) throws ParseException {
     }
-	//Проверка пользователя
+
 	static public void checkUser(auth[] user, auth user1) {
         int l = 0;
         int f = 0;
@@ -27,16 +27,16 @@ public class work {
         }
         if (f != 1) {
             if (l == 2) {
-            	//Неверный пароль
+
                 System.exit(2);
             }
             if (l == 0) {
-            	//Неизвестный логин
+
                 System.exit(1);
             }
         }
     }
-	//Проверка прав
+
 	static public void checkRights(role[] role, auth user, role role1) {
         int l = 0;
         for (int i = 0; i < role.length; i++) {
@@ -48,11 +48,11 @@ public class work {
             }
         }
         if (l == 0) {
-        	//Нет доступа
+
             System.exit(4);
         }
     }
-	//Проверка даты
+
 	static public void checkDate(String str1) {
         try {
             Calendar calendar = new GregorianCalendar();
@@ -60,24 +60,24 @@ public class work {
             formatter.setLenient(false);
             calendar.setTime(formatter.parse(str1));
         } catch (Exception e) {
-        	//Некорректная активность (невалидная дата или объем)
+
             System.exit(5);
         }
     }
-	//Проверка объема
+
 	static public void checkValue(String value) {
         try {
             Integer.parseInt(value);
             if (Integer.valueOf(value) < 0) {
-            	//Некорректная активность (невалидная дата или объем)
+
                 System.exit(5);
             }
         } catch (NumberFormatException e) {
-        	//Некорректная активность (невалидная дата или объем)
+
             System.exit(5);
         }
     }
-	//Помощь
+
 	static public void printHelp() {
         System.out.print("This is help adviser");
         System.out.println("[-h] - Show help\n" +
@@ -91,10 +91,10 @@ public class work {
                 "[-df date] - Enter date2\n" +
                 "[-vol volume] - Enter volume\n" +
                 "Dates and volume may be entered just together");
-        //Успех
+
         System.exit(0);
     }
-//Старая версия
+
 /*	 static public void check(String in, auth[] user, role[] role) throws ParseException {
 		 int i = 0;
 		 String[] str1 = in.split(" ");
