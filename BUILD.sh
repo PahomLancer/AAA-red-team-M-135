@@ -9,4 +9,4 @@ cp -r resources/* aaa/classes/
 mkdir -p "aaa/lib"
 cp lib/* aaa/lib/
 
-jar -cfe aaa/aaa.jar andr.Main -C aaa/classes/ .
+jar -cfe aaa/aaa.jar com.andr.Main -C aaa/classes/ .
