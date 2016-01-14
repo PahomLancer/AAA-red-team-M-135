@@ -11,3 +11,4 @@ mkdir -p "aaa/lib"
 cp lib/* aaa/lib/
 
 jar -cfe aaa/aaa.jar com.andr.Main -C aaa/classes/ .
+
