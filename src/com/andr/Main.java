@@ -40,7 +40,7 @@ public class Main {
         writer.flush();
     }
 
-    public static int work(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException {
 
         Options options = new Options()
                 .addOption(makeOptionWithArgument("login", "Login name", true))
@@ -56,51 +56,53 @@ public class Main {
             commandLine = new DefaultParser().parse(options, args);
         } catch (ParseException e) {
             printHelp(options);
-            return 0;
+            System.exit(255);
         }
-        logger.warn("***********START***********");
+
+        logger.warn("------------------Started------------------------");
         Auth auth = new Auth();
 
         auth.authentication(commandLine.getOptionValue("login"), commandLine.getOptionValue("pass"));
 
         if (!auth.isCorrectLogin()) {
             logger.warn("Incorrect login");
-            return 1;
+            System.exit(1);
         }
 
         if (!auth.isCorrectPass()) {
             logger.warn("Incorrect password");
-            return 2;
+            System.exit(2);
         }
+
+
         if (commandLine.hasOption("role") && commandLine.hasOption("res")) {
             Role role = Role.fromString(commandLine.getOptionValue("role"));
 
             if (role == null) {
                 logger.warn("Incorrect role");
-                return 3;
+                System.exit(3);
             }
+            // Checking resource access
             auth.res(commandLine.getOptionValue("res"), role);
 
             if (!auth.isResAccess()) {
                 logger.warn("Access denied");
-                return 4;
+                System.exit(4);
             }
+
             if (commandLine.hasOption("ds") && commandLine.hasOption("de") && commandLine.hasOption("vol")) {
+
                 auth.checkVolume(commandLine.getOptionValue("vol"));
                 auth.checkDate(commandLine.getOptionValue("ds"), commandLine.getOptionValue("de"));
 
                 if (!auth.isCorrectVolume() || !auth.isCorrectDate()) {
                     logger.warn("Incorrect volume or date");
-                    return 5;
+                    System.exit(5);
                 }
                 // Insert
                 auth.insertToAccau(commandLine.getOptionValue("role"));
             }
-        }
-        return 0;
-    }
-
-    public static void main(String[] args) throws SQLException {
-        System.exit(work(args));
+        } else
+            System.exit(0);
     }
 }
