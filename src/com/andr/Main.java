@@ -101,6 +101,7 @@ public class Main {
     }
 
     public static void main(String[] args) throws SQLException {
+        System.out.printf("%s", args);
         System.exit(work(args));
     }
 }
