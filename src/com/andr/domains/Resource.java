@@ -1,4 +1,4 @@
-package andr.domains;
+package com.andr.domains;
 
 public class Resource {
     private int id;

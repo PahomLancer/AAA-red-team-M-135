@@ -1,4 +1,4 @@
-package andr.domains;
+package com.andr.domains;
 
 public class User {
     private int id;

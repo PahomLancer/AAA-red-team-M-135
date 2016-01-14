@@ -1,12 +1,12 @@
-package andr;
+package com.andr;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.flywaydb.core.Flyway;
 
-import domains.Resource;
-import domains.Role;
-import domains.User;
+import com.andr.domains.Resource;
+import com.andr.domains.Role;
+import com.andr.domains.User;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

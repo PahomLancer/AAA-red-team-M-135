@@ -1,4 +1,4 @@
-package andr.domains;
+package com.andr.domains;
 
 //Enum rights
 public enum Role {

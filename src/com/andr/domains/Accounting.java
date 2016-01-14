@@ -1,4 +1,4 @@
-package andr.domains;
+package com.andr.domains;
 
 import java.util.Date;
 import java.util.Calendar;
