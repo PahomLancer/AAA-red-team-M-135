@@ -56,7 +56,7 @@ public class Main {
             commandLine = new DefaultParser().parse(options, args);
         } catch (ParseException e) {
             printHelp(options);
-            return 255;
+            return 0;
         }
         logger.warn("***********START***********");
         Auth auth = new Auth();
