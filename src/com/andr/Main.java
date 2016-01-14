@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.andr.domains.Role;
+import com.andr.Auth;
 
 import java.io.PrintWriter;
 import java.sql.SQLException;
