@@ -28,8 +28,8 @@ test "-login jdoe -pass sup3rpaZZ -role read -res a" 0
 test "-login jdoe -pass sup3rpaZZ -role read -res a.b" 0
 test "-login jdoe -pass sup3rpaZZ -role xxx -res a.b" 3
 test "-login jdoe -pass sup3rpaZZ -role read -res XXX" 4
-test "-login jdoe -pass sup3rpaZZ -role write -res a 4
-test "-login jdoe -pass sup3rpaZZ -role write -res a.bc 4
+test "-login jdoe -pass sup3rpaZZ -role write -res a" 4
+test "-login jdoe -pass sup3rpaZZ -role write -res a.bc" 4
 
 test "-login jdoe -pass sup3rpaZZ -role read -res a -ds 2015-05-01 -de 2015-05-02 -vol 100" 0
 test "-login jdoe -pass sup3rpaZZ -role read -res a -ds XXX -de XXX -vol XXX" 5
