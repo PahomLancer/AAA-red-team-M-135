@@ -1,14 +1,15 @@
 package com.andr.domains;
 
-//Enum rights
 public enum Role {
+
     read("read"), write("write"), execute("execute");
+
     final String value;
-    //Set rights
+
     Role(String value) {
         this.value = value;
     }
-    //Converting from string
+
     public static Role fromString(String x) {
         switch (x) {
             case "read":
@@ -18,10 +19,11 @@ public enum Role {
             case "execute":
                 return execute;
         }
+
         return null;
     }
-    //Return value
-    public String returnValue() {
+
+    public String getValue() {
         return value;
     }
 }
