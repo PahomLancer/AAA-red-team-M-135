@@ -37,12 +37,12 @@ public class Auth {
         //Creating Flyway instance
         Flyway flyway = new Flyway();
         //Seting database
-        flyway.setDataSource("jdbc:h2:./aaa/resources", "sa", "");
+        flyway.setDataSource("jdbc:h2:./aaa", "sa", "");
         //Start migration
         flyway.migrate();
     }
     public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:h2:./aaa/resources", "sa", "");
+        return DriverManager.getConnection("jdbc:h2:./aaa", "sa", "");
     }
     public static String md5(String input) {
         String md5 = null;
