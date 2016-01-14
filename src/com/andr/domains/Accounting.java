@@ -4,14 +4,21 @@ import java.util.Date;
 import java.util.Calendar;
 
 public class Accounting {
+
     private int id;
+
     private Role role;
+
     private User user;
+
     private Date loginDate;
+
     private Date logoutDate;
+
     private int value;
+
     private Resource resources;
-    //Set account
+
     public Accounting(int id, Role role, User user, Resource resources) {
         this.id = id;
         this.role = role;
@@ -21,34 +28,41 @@ public class Accounting {
         this.value = 0;
         this.resources = resources;
     }
-    //Log delog
+
+    public int getId() {
+        return id;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
     public void setLogoutDate(Date logoutDate) {
         this.logoutDate = logoutDate;
     }
-    //Set value
+
     public void setValue(int value) {
         this.value = value;
     }
-    //Get id
-    public int returnId() {
-        return id;
-    }
-    public Role returnRole() {
-        return role;
-    }
-    public User returnUser() {
+
+    public User getUser() {
         return user;
     }
-    public Date returnLoginDate() {
+
+    public Date getLoginDate() {
         return loginDate;
     }
-    public Date returnLogoutDate() {
+
+    public Date getLogoutDate() {
         return logoutDate;
     }
-    public int returnValue() {
+
+    public int getValue() {
         return value;
     }
-    public Resource returnResources() {
+
+    public Resource getResources() {
         return resources;
     }
+
 }
