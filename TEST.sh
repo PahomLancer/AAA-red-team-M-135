@@ -31,9 +31,9 @@ test "-login jdoe -pass sup3rpaZZ -role read -res XXX" 4
 test "-login jdoe -pass sup3rpaZZ -role write -res a" 4
 test "-login jdoe -pass sup3rpaZZ -role write -res a.bc" 4
 
-test "-login jdoe -pass sup3rpaZZ -role read -res a -ds 2015-05-01 -de 2015-05-02 -vol 100" 0
+test "-login jdoe -pass sup3rpaZZ -role read -res a -ds \"2015-05-01\" -de \"2015-05-02\" -vol 100" 0
 test "-login jdoe -pass sup3rpaZZ -role read -res a -ds XXX -de XXX -vol XXX" 5
-test "-login jdoe -pass sup3rpaZZ -role read -res a -ds 2015-05-01 -de 2015-05-02 -vol XXX" 5
+test "-login jdoe -pass sup3rpaZZ -role read -res a -ds \"2015-05-01\" -de \"2015-05-02\" -vol XXX" 5
 
 echo
 if [[ $result -gt 0 ]]; then
