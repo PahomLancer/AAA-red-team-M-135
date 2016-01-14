@@ -24,7 +24,7 @@ test "-login XXX -pass XXX" 1
 test "-login jdoe -pass XXX" 2
 test "-login jdoe -pass sup3rpaZZ" 0
 
-test "-login jdoe -pass sup3rpaZZ -role read -res a" 0
+test "-login jdoe -pass sup3rpaZZ -role read -res 'a'" 0
 test "-login jdoe -pass sup3rpaZZ -role read -res a.b" 0
 test "-login jdoe -pass sup3rpaZZ -role xxx -res a.b" 3
 test "-login jdoe -pass sup3rpaZZ -role read -res XXX" 4
